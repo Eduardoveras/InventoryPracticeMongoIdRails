@@ -7,5 +7,5 @@ class OrdenCompra
   field :codigo_suplidor, type: String
   field :fecha_orden, type: DateTime
   field :monto_total, type: Integer
-  field :articulos, type: Array
+  field :articulos, type: String
 end

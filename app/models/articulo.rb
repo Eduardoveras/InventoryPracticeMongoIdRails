@@ -6,4 +6,6 @@ class Articulo
   field :descripcion, type: String
   field :unidad_compra_diaria, type: Integer
   field :total_inventario, type: Integer
+  field :suplidores, type: Array
+
 end

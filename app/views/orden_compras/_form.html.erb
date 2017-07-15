@@ -23,8 +23,8 @@
 
   <div class="form-group">
     <%= f.label :articulos %>
-    <%= f.select(:articulos, Articulo.all.collect {|a| [a.descripcion, a.codigo_articulo]},{ :prompt => "Please select"},
-                 { :multiple => true, :size => 3 ,class: 'form-control'}) -%>
+    <%= f.select(:articulos, Articulo.all.collect {|a| [a.descripcion, a.codigo_articulo]}, {:prompt => "Please select"},
+                 {:multiple => false, :size => 1, class: 'form-control'}) -%>
 
   </div>
 

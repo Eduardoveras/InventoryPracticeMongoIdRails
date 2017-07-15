@@ -27,6 +27,7 @@ class OrdenComprasController < ApplicationController
     @orden_compra = OrdenCompra.new(orden_compra_params)
     @orden_compra.fecha_orden ||= Date.today
     @orden_compra.codigo_orden = Faker::Code.unique.ean
+    @orden_compra.articulos
 
     respond_to do |format|
       if @orden_compra.save
