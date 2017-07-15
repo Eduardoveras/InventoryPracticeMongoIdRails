@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigoFactura: 1
+  sucursal: MyString
+  codigoCliente: MyString
+  fechaFactura: 2017-07-09
+  nombreCliente: MyString
+  ciudadFactura: MyString
+  ciudadDespacho: MyString
+  totalFactura: 1.5
+  articulos: 
+
+two:
+  codigoFactura: 1
+  sucursal: MyString
+  codigoCliente: MyString
+  fechaFactura: 2017-07-09
+  nombreCliente: MyString
+  ciudadFactura: MyString
+  ciudadDespacho: MyString
+  totalFactura: 1.5
+  articulos: 

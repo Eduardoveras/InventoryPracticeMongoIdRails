@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo articulo:</strong>
+  <%= @articulo.codigo_articulo %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @articulo.descripcion %>
+</p>
+
+
+<p>
+  <strong>Unidad compra diaria:</strong>
+  <%= @articulo.unidad_compra_diaria %>
+</p>
+
+
+<p>
+  <strong>Total en inventario:</strong>
+  <%= @articulo.total_inventario %>
+</p>
+
+<%= link_to 'Edit', edit_articulo_path(@articulo) %> |
+<%= link_to 'Back', articulos_path %>

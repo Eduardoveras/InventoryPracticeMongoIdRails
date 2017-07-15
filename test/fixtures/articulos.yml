@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo_articulo: MyString
+  descripcion: MyString
+  suplidores: 
+  unidad_compra_diaria: MyString
+
+two:
+  codigo_articulo: MyString
+  descripcion: MyString
+  suplidores: 
+  unidad_compra_diaria: MyString

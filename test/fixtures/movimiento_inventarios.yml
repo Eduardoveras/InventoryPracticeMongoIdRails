@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo_movimiento: MyString
+  codigo_almacen: MyString
+  tipo_movimiento: MyString
+  codigo_articulo: MyString
+  cantidad: 1
+
+two:
+  codigo_movimiento: MyString
+  codigo_almacen: MyString
+  tipo_movimiento: MyString
+  codigo_articulo: MyString
+  cantidad: 1

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Movimiento Inventarios</h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Codigo movimiento</th>
+      <th>Codigo almacen</th>
+      <th>Tipo movimiento</th>
+      <th>Codigo articulo</th>
+      <th>Cantidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movimiento_inventarios.each do |movimiento_inventario| %>
+      <tr>
+        <td><%= movimiento_inventario.codigo_movimiento %></td>
+        <td><%= movimiento_inventario.codigo_almacen %></td>
+        <td><%= movimiento_inventario.tipo_movimiento %></td>
+        <td><%= movimiento_inventario.codigo_articulo %></td>
+        <td><%= movimiento_inventario.cantidad %></td>
+        <td><%= link_to 'Show', movimiento_inventario %></td>
+        <td><%= link_to 'Edit', edit_movimiento_inventario_path(movimiento_inventario) %></td>
+        <td><%= link_to 'Destroy', movimiento_inventario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Movimiento Inventario', new_movimiento_inventario_path, class: 'btn btn-primary' %>

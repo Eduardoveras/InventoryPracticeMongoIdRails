@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo movimiento:</strong>
+  <%= @movimiento_inventario.codigo_movimiento %>
+</p>
+
+<p>
+  <strong>Codigo almacen:</strong>
+  <%= @movimiento_inventario.codigo_almacen %>
+</p>
+
+<p>
+  <strong>Tipo movimiento:</strong>
+  <%= @movimiento_inventario.tipo_movimiento %>
+</p>
+
+<p>
+  <strong>Codigo articulo:</strong>
+  <%= @movimiento_inventario.codigo_articulo %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @movimiento_inventario.cantidad %>
+</p>
+
+<%= link_to 'Edit', edit_movimiento_inventario_path(@movimiento_inventario) %> |
+<%= link_to 'Back', movimiento_inventarios_path %>

@@ -1,0 +1,42 @@
+<%= form_for(movimiento_inventario) do |f| %>
+  <% if movimiento_inventario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movimiento_inventario.errors.count, "error") %> prohibited this movimiento_inventario from being saved:</h2>
+
+      <ul>
+      <% movimiento_inventario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :codigo_movimiento %>
+    <%= f.text_field :codigo_movimiento %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :codigo_almacen %>
+    <%= f.text_field :codigo_almacen %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tipo_movimiento %>
+    <%= f.text_field :tipo_movimiento %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :codigo_articulo %>
+    <%= f.text_field :codigo_articulo %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :cantidad %>
+    <%= f.number_field :cantidad %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

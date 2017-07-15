@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Articulo Suplidors</h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Codigo articulo</th>
+      <th>Codigo suplidos</th>
+      <th>Tiempo entrega</th>
+      <th>Precio compra</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articulo_suplidors.each do |articulo_suplidor| %>
+      <tr>
+        <td><%= articulo_suplidor.codigo_articulo %></td>
+        <td><%= articulo_suplidor.codigo_suplidos %></td>
+        <td><%= articulo_suplidor.tiempo_entrega %></td>
+        <td><%= articulo_suplidor.precio_compra %></td>
+        <td><%= link_to 'Show', articulo_suplidor %></td>
+        <td><%= link_to 'Edit', edit_articulo_suplidor_path(articulo_suplidor) %></td>
+        <td><%= link_to 'Destroy', articulo_suplidor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Articulo Suplidor', new_articulo_suplidor_path, class: 'btn btn-primary' %>

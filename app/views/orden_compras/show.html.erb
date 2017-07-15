@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo orden:</strong>
+  <%= @orden_compra.codigo_orden %>
+</p>
+
+<p>
+  <strong>Codigo suplidor:</strong>
+  <%= @orden_compra.codigo_suplidor %>
+</p>
+
+<p>
+  <strong>Fecha orden:</strong>
+  <%= @orden_compra.fecha_orden %>
+</p>
+
+<p>
+  <strong>Monto total:</strong>
+  <%= @orden_compra.monto_total %>
+</p>
+
+<p>
+  <strong>Articulos:</strong>
+  <%= @orden_compra.articulos %>
+</p>
+
+<%= link_to 'Edit', edit_orden_compra_path(@orden_compra) %> |
+<%= link_to 'Back', orden_compras_path %>

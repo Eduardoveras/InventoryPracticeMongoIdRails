@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo articulo:</strong>
+  <%= @articulo_suplidor.codigo_articulo %>
+</p>
+
+<p>
+  <strong>Codigo suplidos:</strong>
+  <%= @articulo_suplidor.codigo_suplidos %>
+</p>
+
+<p>
+  <strong>Tiempo entrega:</strong>
+  <%= @articulo_suplidor.tiempo_entrega %>
+</p>
+
+<p>
+  <strong>Precio compra:</strong>
+  <%= @articulo_suplidor.precio_compra %>
+</p>
+
+<%= link_to 'Edit', edit_articulo_suplidor_path(@articulo_suplidor) %> |
+<%= link_to 'Back', articulo_suplidors_path %>

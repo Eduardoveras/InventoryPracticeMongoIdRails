@@ -1,0 +1,34 @@
+<%= form_for(orden_compra) do |f| %>
+  <% if orden_compra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(orden_compra.errors.count, "error") %> prohibited this orden_compra from being saved:</h2>
+
+      <ul>
+      <% orden_compra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :fecha_orden %>
+    <%= f.date_select :fecha_orden %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :monto_total %>
+    <%= f.number_field :monto_total %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :articulos %>
+    <%= f.select(:articulos, Articulo.all.collect {|a| [a.descripcion, a.codigo_articulo]},{ :prompt => "Please select"},
+                 { :multiple => true, :size => 3 ,class: 'form-control'}) -%>
+
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

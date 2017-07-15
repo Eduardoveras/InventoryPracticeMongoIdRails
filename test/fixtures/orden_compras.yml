@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo_orden: MyString
+  codigo_suplidor: MyString
+  fecha_orden: 2017-07-13
+  monto_total: 1
+  articulos: 
+
+two:
+  codigo_orden: MyString
+  codigo_suplidor: MyString
+  fecha_orden: 2017-07-13
+  monto_total: 1
+  articulos: 
