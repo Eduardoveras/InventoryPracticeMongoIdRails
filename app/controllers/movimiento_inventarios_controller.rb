@@ -25,6 +25,18 @@ class MovimientoInventariosController < ApplicationController
   # POST /movimiento_inventarios.json
   def create
     @movimiento_inventario = MovimientoInventario.new(movimiento_inventario_params)
+    @movimiento_inventario.codigo_movimiento = Faker::Code.unique.ean
+
+    art = Articulo.find_by(codigo_articulo: @movimiento_inventario.codigo_articulo)
+
+    if @movimiento_inventario.tipo_movimiento=="ENTRADA"
+      art.total_inventario += @movimiento_inventario.cantidad
+      art.save!
+    else
+      art.total_inventario -= @movimiento_inventario.cantidad
+      art.save!
+    end
+
 
     respond_to do |format|
       if @movimiento_inventario.save

@@ -12,28 +12,19 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :codigo_movimiento %>
-    <%= f.text_field :codigo_movimiento %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :codigo_almacen %>
-    <%= f.text_field :codigo_almacen %>
-  </div>
-
-  <div class="form-group">
     <%= f.label :tipo_movimiento %>
-    <%= f.text_field :tipo_movimiento %>
+    <%= f.select :tipo_movimiento, options_for_select(["ENTRADA", "SALIDA"], "ENTRADA"), {}, {class: 'form-control'} %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :codigo_articulo %>
-    <%= f.text_field :codigo_articulo %>
-  </div>
+    <div class="form-group">
+      <%= f.label :codigo_articulo %>
+      <%= f.select(:codigo_articulo, Articulo.all.collect {|a| [a.descripcion, a.codigo_articulo]}, {:prompt => "Please select"},
+                   {class: 'form-control'}) -%>
+    </div>
 
   <div class="form-group">
     <%= f.label :cantidad %>
-    <%= f.number_field :cantidad %>
+    <%= f.number_field :cantidad, class: 'form-control' %>
   </div>
 
   <div class="actions">

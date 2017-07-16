@@ -4,34 +4,35 @@
 
 <table class="table table-striped table-hover">
   <thead>
-    <tr>
-      <th>Codigo orden</th>
-      <th>Codigo suplidor</th>
-      <th>Fecha orden</th>
-      <th>Monto total</th>
-      <th>Articulos</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Codigo orden</th>
+    <th>Codigo suplidor</th>
+    <th>Fecha orden</th>
+    <th>Monto total</th>
+    <th>Articulos</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @orden_compras.each do |orden_compra| %>
+  <% @orden_compras.each do |orden_compra| %>
       <tr>
         <td><%= orden_compra.codigo_orden %></td>
-        <td><%= orden_compra.codigo_suplidor %></td>
         <td><%= orden_compra.fecha_orden %></td>
         <td><%= orden_compra.monto_total %></td>
         <td>
-          <pre><%= JSON.pretty_generate(orden_compra.articulos) %></pre>
+          <% orden_compra.articulos.each do |x| %>
+              <pre><%= JSON.pretty_generate(x) %></pre>
+          <% end %>
         </td>
         <td><%= link_to 'Show', orden_compra %></td>
         <td><%= link_to 'Edit', edit_orden_compra_path(orden_compra) %></td>
-        <td><%= link_to 'Destroy', orden_compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', orden_compra, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Orden Compra', new_orden_compra_path, class: 'btn btn-primary'%>
+<%= link_to 'New Orden Compra', new_orden_compra_path, class: 'btn btn-primary' %>

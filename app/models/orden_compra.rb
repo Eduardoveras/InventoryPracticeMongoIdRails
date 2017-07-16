@@ -4,15 +4,23 @@ class OrdenCompra
   include Mongoid::Timestamps::Created
   include Mongoid::Timestamps::Updated
   field :codigo_orden, type: String
-  field :codigo_suplidor, type: String
   field :fecha_orden, type: DateTime
   field :monto_total, type: Integer
   field :articulos, type: Array
 
 
+  validates :monto_total, presence: true
+  validate :date_cannot_be_in_the_past
+
+  def date_cannot_be_in_the_past
+    if fecha_orden.present? && fecha_orden < Date.today
+      errors.add(:fecha_orden, "can't be in the past")
+    end
+  end
+
+
   def articulos_for_form=(value_from_form)
     value_from_form = "" unless value_from_form.respond_to(:split)
-
     self.articulos = value_from_form.split(',')
   end
 

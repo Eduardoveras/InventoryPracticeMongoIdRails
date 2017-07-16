@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Codigo movimiento</th>
-      <th>Codigo almacen</th>
       <th>Tipo movimiento</th>
       <th>Codigo articulo</th>
       <th>Cantidad</th>
@@ -18,7 +17,6 @@
     <% @movimiento_inventarios.each do |movimiento_inventario| %>
       <tr>
         <td><%= movimiento_inventario.codigo_movimiento %></td>
-        <td><%= movimiento_inventario.codigo_almacen %></td>
         <td><%= movimiento_inventario.tipo_movimiento %></td>
         <td><%= movimiento_inventario.codigo_articulo %></td>
         <td><%= movimiento_inventario.cantidad %></td>
