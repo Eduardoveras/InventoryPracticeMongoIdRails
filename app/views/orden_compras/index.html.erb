@@ -21,7 +21,9 @@
         <td><%= orden_compra.codigo_suplidor %></td>
         <td><%= orden_compra.fecha_orden %></td>
         <td><%= orden_compra.monto_total %></td>
-        <td><%= orden_compra.articulos %></td>
+        <td>
+          <pre><%= JSON.pretty_generate(orden_compra.articulos) %></pre>
+        </td>
         <td><%= link_to 'Show', orden_compra %></td>
         <td><%= link_to 'Edit', edit_orden_compra_path(orden_compra) %></td>
         <td><%= link_to 'Destroy', orden_compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>

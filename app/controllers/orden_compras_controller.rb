@@ -27,7 +27,20 @@ class OrdenComprasController < ApplicationController
     @orden_compra = OrdenCompra.new(orden_compra_params)
     @orden_compra.fecha_orden ||= Date.today
     @orden_compra.codigo_orden = Faker::Code.unique.ean
-    @orden_compra.articulos
+    the_truth = []
+    @orden_compra.articulos.each do |art|
+      if art != ""
+        articulo = Articulo.find_by(codigo_articulo: art)
+        the_truth.push(
+            codigo_articulo: articulo.codigo_articulo,
+            cantidad: 1,
+            suplidor: articulo.suplidores[0],
+        )
+      end
+
+    end
+    @orden_compra.articulos = the_truth
+
 
     respond_to do |format|
       if @orden_compra.save
@@ -72,6 +85,6 @@ class OrdenComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def orden_compra_params
-      params.require(:orden_compra).permit(:codigo_orden, :codigo_suplidor, :fecha_orden, :monto_total, :articulos)
+      params.require(:orden_compra).permit(:codigo_orden, :codigo_suplidor, :fecha_orden, :monto_total, :articulos => [])
     end
 end
