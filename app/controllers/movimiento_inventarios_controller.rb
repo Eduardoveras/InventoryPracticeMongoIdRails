@@ -66,6 +66,7 @@ class MovimientoInventariosController < ApplicationController
   # DELETE /movimiento_inventarios/1
   # DELETE /movimiento_inventarios/1.json
   def destroy
+    Articulo.find_by(codigo_articulo: @movimiento_inventario.codigo_articulo)
     @movimiento_inventario.destroy
     respond_to do |format|
       format.html { redirect_to movimiento_inventarios_url, notice: 'Movimiento inventario was successfully destroyed.' }

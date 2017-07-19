@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-30.times do
+
+2.times do
   Articulo.create!([{codigo_articulo: Faker::Code.unique.asin,
                      descripcion: Faker::GameOfThrones.character,
                      unidad_compra_diaria: Faker::Number.between(10, 100),

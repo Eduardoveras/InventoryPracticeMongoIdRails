@@ -6,9 +6,9 @@
   <thead>
   <tr>
     <th>Codigo orden</th>
-    <th>Codigo suplidor</th>
     <th>Fecha orden</th>
-    <th>Monto total</th>
+    <th>Cantidad articulos</th>
+    <th>Costo Total $</th>
     <th>Articulos</th>
     <th colspan="3"></th>
   </tr>
@@ -20,13 +20,14 @@
         <td><%= orden_compra.codigo_orden %></td>
         <td><%= orden_compra.fecha_orden %></td>
         <td><%= orden_compra.monto_total %></td>
+        <td><%= orden_compra.total_de_la_orden %></td>
         <td>
           <% orden_compra.articulos.each do |x| %>
               <pre><%= JSON.pretty_generate(x) %></pre>
           <% end %>
         </td>
         <td><%= link_to 'Show', orden_compra %></td>
-        <td><%= link_to 'Edit', edit_orden_compra_path(orden_compra) %></td>
+        <td><%#= link_to 'Edit', edit_orden_compra_path(orden_compra) %></td>
         <td><%= link_to 'Destroy', orden_compra, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
   <% end %>

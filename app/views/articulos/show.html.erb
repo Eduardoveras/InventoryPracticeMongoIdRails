@@ -11,6 +11,7 @@
 </p>
 
 
+
 <p>
   <strong>Unidad compra diaria:</strong>
   <%= @articulo.unidad_compra_diaria %>
@@ -22,5 +23,15 @@
   <%= @articulo.total_inventario %>
 </p>
 
-<%= link_to 'Edit', edit_articulo_path(@articulo) %> |
+<p>
+  <strong>Suplidores:</strong>
+  <% if @articulo.suplidores.respond_to? :each %>
+      <% @articulo.suplidores.each do |x| %>
+        <pre><%= JSON.pretty_generate(x) %></pre>
+    <% end %>
+<% end %>
+
+<p>
+
+  <%= link_to 'Edit', edit_articulo_path(@articulo) %> |
 <%= link_to 'Back', articulos_path %>

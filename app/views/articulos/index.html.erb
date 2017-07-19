@@ -4,27 +4,38 @@
 
 <table class="table table-striped table-hover">
   <thead>
-    <tr>
-      <th>Codigo articulo</th>
-      <th>Descripcion</th>
-      <th>Unidad compra diaria</th>
-      <th>Total Inventario</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Codigo articulo</th>
+    <th>Descripcion</th>
+    <th>Unidad compra diaria</th>
+    <th>Total Inventario</th>
+    <th>Se acabara en:</th>
+    <th>Suplidores</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @articulos.each do |articulo| %>
+  <% @articulos.each do |articulo| %>
       <tr>
         <td><%= articulo.codigo_articulo %></td>
         <td><%= articulo.descripcion %></td>
         <td><%= articulo.unidad_compra_diaria %></td>
         <td><%= articulo.total_inventario %></td>
+        <td><%= articulo.fecha_de_acabado %> Dias</td>
+
+        <td>
+          <% if articulo.suplidores.respond_to? :each %>
+              <% articulo.suplidores.each do |x| %>
+                  <pre><%= JSON.pretty_generate(x) %></pre>
+              <% end %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', articulo %></td>
         <td><%= link_to 'Edit', edit_articulo_path(articulo) %></td>
-        <td><%= link_to 'Destroy', articulo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', articulo, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 

@@ -7,3 +7,6 @@ class MovimientoInventario
   field :codigo_articulo, type: String
   field :cantidad, type: Integer
 end
+
+
+

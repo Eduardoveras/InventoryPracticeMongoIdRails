@@ -53,7 +53,7 @@ class OrdenComprasController < ApplicationController
 
         lista_articulos.push(
             codigo_articulo: articulo.codigo_articulo,
-            cantidad: 1,
+            cantidad: @orden_compra.monto_total,
             suplidor: suplidor_selecionado || articulo.suplidores[0]
         )
       end
@@ -76,6 +76,13 @@ class OrdenComprasController < ApplicationController
   # PATCH/PUT /orden_compras/1
   # PATCH/PUT /orden_compras/1.json
   def update
+
+    formated_date = Date.new(orden_compra_params["fecha_orden(1i)"].to_i,
+                             orden_compra_params["fecha_orden(2i)"].to_i,
+                             orden_compra_params["fecha_orden(3i)"].to_i)
+
+    orden_compra_params[:fecha_orden]=formated_date
+
     respond_to do |format|
       if @orden_compra.update(orden_compra_params)
         format.html {redirect_to @orden_compra, notice: 'Orden compra was successfully updated.'}
@@ -105,6 +112,6 @@ class OrdenComprasController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def orden_compra_params
-    params.require(:orden_compra).permit(:codigo_orden, :codigo_suplidor, :fecha_orden, :monto_total, :articulos => [])
+    params.require(:orden_compra).permit(:codigo_orden, :codigo_suplidor, "fecha_orden(1i)".to_sym, "fecha_orden(1i)".to_sym, "fecha_orden(1i)".to_sym, :fecha_orden, :monto_total, :articulos => [])
   end
 end

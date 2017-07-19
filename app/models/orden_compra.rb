@@ -1,3 +1,4 @@
+require 'pp'
 class OrdenCompra
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
@@ -27,5 +28,15 @@ class OrdenCompra
   def articulos_for_form
     self.articulos
   end
+
+
+  def total_de_la_orden
+    sum=0
+    self.articulos.each do |x|
+      sum+= x[:suplidor][:precio_compra]
+    end
+    sum
+  end
+
 
 end
